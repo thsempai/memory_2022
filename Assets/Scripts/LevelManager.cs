@@ -9,9 +9,11 @@ public class LevelManager : MonoBehaviour
     public int columns = 3;
     public float padding = 0.3f;
     public Material[] materials;
+    public float timeBeforeUnreveal = 0.5f;
     private List<Material> potentialMaterials = new List<Material>();
     private List<CubeBehavior> cubes = new List<CubeBehavior>();
     private List<CubeBehavior> cubesRevealed = new List<CubeBehavior>();
+    private List<CubeBehavior> alreadyMatched = new List<CubeBehavior>();
 
     // Start is called before the first frame update
     void Start()
@@ -35,16 +37,32 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    IEnumerator UnRevealCubes(){
+        yield return new WaitForSeconds(timeBeforeUnreveal);
+        for(int i = 0; i < cubesRevealed.Count; i++){
+            cubesRevealed[i].UnrevealColor();
+        }
+        cubesRevealed.Clear();
+    }
+
     public void CubeRevealed(CubeBehavior cube){
         if(cubesRevealed.Contains(cube))return;
+        if(alreadyMatched.Contains(cube))return;
+        if(cubesRevealed.Count >= 2) return;
+
         cube.RevealColor();
         cubesRevealed.Add(cube);
 
         if(cubesRevealed.Count >= 2){
             if(cubesRevealed[0].hiddenMaterial == cubesRevealed[1].hiddenMaterial){
                 Debug.Log("It's a match!!!");
+                alreadyMatched.Add(cubesRevealed[0]);
+                alreadyMatched.Add(cubesRevealed[1]);
+                cubesRevealed.Clear();
             }
-        cubesRevealed.Clear();
+            else{
+                StartCoroutine(UnRevealCubes());
+            }
         }
     }
 
