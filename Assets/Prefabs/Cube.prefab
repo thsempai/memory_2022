@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6214015594814448272}
   - component: {fileID: 6214015594814448273}
   - component: {fileID: 6214015594814448269}
+  - component: {fileID: 5548395728531737851}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -111,3 +112,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiddenMaterial: {fileID: 2100000, guid: 69f1cd7f9211d024bbe2f44f5729724b, type: 2}
+  manager: {fileID: 0}
+--- !u!95 &5548395728531737851
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6214015594814448278}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d6056c6afdfbdc45be0645b10838d5d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

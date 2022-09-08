@@ -156,6 +156,14 @@ MonoBehaviour:
   lines: 3
   columns: 4
   padding: 0.3
+  materials:
+  - {fileID: 2100000, guid: 15d9fc8be852c294b96a1fcfa0f2820c, type: 2}
+  - {fileID: 2100000, guid: 5d258fbcafca3cf44a3c47a855f78591, type: 2}
+  - {fileID: 2100000, guid: ee6d41f59baa416469988076d213d359, type: 2}
+  - {fileID: 2100000, guid: 69f1cd7f9211d024bbe2f44f5729724b, type: 2}
+  - {fileID: 2100000, guid: bf5fc5eb82bd2fc47a71d0dd3bf8262d, type: 2}
+  - {fileID: 2100000, guid: 6e8dd9aa23e193c43b291518b38997a2, type: 2}
+  timeBeforeUnreveal: 0.5
 --- !u!4 &410153479
 Transform:
   m_ObjectHideFlags: 0

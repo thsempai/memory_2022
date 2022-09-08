@@ -10,11 +10,22 @@ public class CubeBehavior : MonoBehaviour
     private Material originalMaterial;
     public LevelManager manager;
 
+    private Animator animator;
+
     void Start()
     {
      originalMaterial = GetComponent<Renderer>().material;   
+     animator = GetComponent<Animator>();   
+    
     }
 
+    void OnMouseEnter(){
+        animator.SetBool("mouseOver", true);
+    }
+
+    void OnMouseExit(){
+        animator.SetBool("mouseOver", false);
+    }
 
     void OnMouseUp(){
         manager.CubeRevealed(this);
@@ -22,10 +33,12 @@ public class CubeBehavior : MonoBehaviour
 
     public void RevealColor(){
         GetComponent<Renderer>().material = hiddenMaterial;
+        animator.SetBool("cubeSelected", true);
     }
 
     public void UnrevealColor(){
         GetComponent<Renderer>().material = originalMaterial;
+        animator.SetBool("cubeSelected", false);
     }
             
     // Update is called once per frame
